@@ -1,0 +1,577 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Justine Dave Aguirre — Portfolio</title>
+  <meta name="description" content="Portfolio of Justine Dave Aguirre — BSIT student and Full Stack Developer. Projects, experience, laboratory activities, and contact." />
+  <meta name="author" content="Justine Dave Aguirre" />
+  <link rel="icon" href="assets/img/favicon.ico">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <style>
+    /* ========= THEME & RESET ========= */
+    :root{
+      --bg: #071025;
+      --panel: rgba(255,255,255,0.03);
+      --muted: rgba(255,255,255,0.74);
+      --muted-2: rgba(255,255,255,0.55);
+      --text: #e9f5ff;
+      --accent: #39d6a3;
+      --accent-2: #3bd0ff;
+      --glass-border: rgba(255,255,255,0.06);
+      --glass-shadow: 0 8px 30px rgba(2,6,23,0.6);
+      --radius: 12px;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      color-scheme: dark;
+    }
+    [data-theme="light"]{ --bg:#f6fbff; --panel:rgba(2,6,23,0.04); --muted:rgba(2,6,23,0.76); --muted-2:rgba(2,6,23,0.55); --text:#071025; --accent:#0ea5a4; --accent-2:#0284c7; --glass-border:rgba(0,0,0,0.06); --glass-shadow:0 8px 30px rgba(2,6,23,0.05); color-scheme: light; }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0}
+    body{
+      background: radial-gradient(1200px 600px at 10% 10%, rgba(57,214,163,0.02), transparent 10%), linear-gradient(180deg, var(--bg) 0%, rgba(0,0,0,0.02) 100%);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      padding-bottom:60px;
+    }
+    a{color:inherit}
+    .container{max-width:1100px;margin:0 auto;padding:26px}
+
+    /* ====== Header ====== */
+    header{position:sticky;top:0;backdrop-filter: blur(8px);background: linear-gradient(180deg, rgba(0,0,0,0.12), transparent);border-bottom:1px solid rgba(255,255,255,0.02);z-index:60}
+    .nav {display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .logo{font-weight:800;color:var(--accent);text-decoration:none;font-size:1.05rem}
+    nav.links{display:flex;gap:10px;align-items:center}
+    nav.links a{color:var(--muted);text-decoration:none;padding:8px 12px;border-radius:10px;font-weight:600;font-size:0.95rem}
+    nav.links a:hover{color:var(--text);background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(0,0,0,0.03));transform:translateY(-2px)}
+    .controls{display:flex;gap:8px;align-items:center}
+
+    /* ====== Hero ====== */
+    .hero{display:grid;grid-template-columns:1fr 360px;gap:28px;align-items:center;padding:44px 0}
+    .hero__title{font-size:28px;margin:0 0 6px}
+    .hero__subtitle{color:var(--accent);font-weight:700;margin-bottom:10px}
+    .hero__desc{color:var(--muted);margin:0 0 16px}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:10px 16px;border-radius:12px;background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#042024;font-weight:700;text-decoration:none;border:none;cursor:pointer}
+    .btn--ghost{background:transparent;color:var(--text);border:1px solid var(--glass-border);padding:9px 12px;border-radius:10px}
+    .hero__card{background:linear-gradient(180deg,var(--panel),rgba(255,255,255,0.02));padding:18px;border-radius:14px;border:1px solid var(--glass-border);box-shadow:var(--glass-shadow);text-align:center}
+    .profile{width:150px;height:150px;border-radius:50%;overflow:hidden;margin:0 auto;border:4px solid rgba(255,255,255,0.04)}
+    .profile img{width:100%;height:100%;object-fit:cover;display:block}
+
+    /* ====== Sections ====== */
+    section{padding:22px 0;border-bottom:1px solid rgba(255,255,255,0.02)}
+    .section__title{font-size:17px;margin:0 0 6px}
+    .section__subtitle{color:var(--muted);font-size:0.95rem;margin-bottom:12px;display:block}
+    .card{background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);padding:14px;border-radius:10px;border:1px solid var(--glass-border);box-shadow:0 6px 24px rgba(0,0,0,0.2)}
+    .grid{display:grid;gap:14px}
+    .grid-3{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+    .skills-badge{display:inline-block;padding:6px 10px;border-radius:999px;border:1px solid var(--glass-border);margin-right:6px;margin-bottom:6px;color:var(--muted-2);font-weight:600;font-size:13px}
+
+    /* ====== Games ====== */
+    .games-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+    .ttt-board{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px}
+    .cell{aspect-ratio:1;display:flex;align-items:center;justify-content:center;font-size:28px;border-radius:10px;cursor:pointer;border:1px solid var(--glass-border);background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.02));color:var(--text);font-weight:800;transition:transform .12s}
+    .cell:hover{transform:scale(1.03)}
+    .cell.win{background:linear-gradient(90deg, rgba(57,214,163,0.12), rgba(59,208,255,0.06));color:#042024}
+
+    /* ====== Contact form ====== */
+    input,textarea{width:100%;padding:10px;border-radius:10px;border:1px solid var(--glass-border);background:transparent;color:var(--text);font-size:14px}
+    textarea{min-height:100px;resize:vertical}
+    .muted{color:var(--muted)}
+    .muted-2{color:var(--muted-2)}
+
+    /* ====== Footer & small screens ====== */
+    footer{padding:18px 0}
+    .scrollup{position:fixed;right:18px;bottom:18px;background:var(--accent);color:#042024;padding:12px;border-radius:50%;display:none;z-index:999;box-shadow:0 8px 30px rgba(2,6,23,0.6);cursor:pointer}
+    @media (max-width:980px){ .hero{grid-template-columns:1fr} .hero__card{order:-1} }
+    @media (max-width:640px){ .container{padding:16px} nav.links{display:none} }
+    .fade-up{opacity:0;transform:translateY(12px);transition:all .6s cubic-bezier(.2,.9,.2,1)}
+    .visible{opacity:1;transform:translateY(0)}
+  </style>
+</head>
+
+<body data-theme="dark">
+  <header>
+    <div class="container nav" role="banner">
+      <a class="logo" href="#">Justine Dave Aguirre</a>
+
+      <nav class="links" role="navigation" aria-label="Main">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#resume">Resume</a>
+        <a href="#portfolio">Projects</a>
+        <a href="#labs">Labs</a>
+        <a href="#games">Games</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="controls">
+        <button id="themeToggle" title="Toggle theme" aria-label="Toggle theme" class="btn--ghost"><i class="uil uil-moon"></i></button>
+        <a class="btn--ghost" href="assets/pdf/Justine_Aguirre_CV.pdf" download title="Download CV">Download CV</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" id="main">
+    <!-- HOME -->
+    <section id="home" class="hero fade-up">
+      <div class="hero__left">
+        <h1 class="hero__title">Hi — I'm <strong>Justine Dave Aguirre</strong></h1>
+        <div class="hero__subtitle">BSIT • Full Stack Developer — Davao del Sur State College</div>
+        <p class="hero__desc">I build responsive web systems that improve learning and organization workflows — student portals, hybrid library systems, and crop management apps. I also create interactive front-end projects and small games to demonstrate practical JavaScript skills.</p>
+
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <a class="btn" href="#contact">Contact Me <i class="uil uil-message"></i></a>
+          <a class="btn btn--ghost" href="#portfolio" style="color:var(--accent)">View Projects</a>
+        </div>
+
+        <div style="display:flex;gap:12px;margin-top:14px;align-items:center;flex-wrap:wrap">
+          <div class="card" style="padding:10px;border-radius:10px;display:flex;gap:12px;align-items:center">
+            <div style="font-size:12px;color:var(--muted-2)">Visitors</div>
+            <div id="visitorCount" style="font-weight:800;font-size:18px">0</div>
+          </div>
+
+          <div class="card" style="padding:10px;border-radius:10px;display:flex;gap:12px;align-items:center">
+            <div style="font-size:12px;color:var(--muted-2)">Local Weather</div>
+            <div id="weatherMini" style="font-weight:700">—</div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="hero__card" aria-hidden="false">
+        <div class="profile" aria-hidden="true">
+          <img src="assets/img/justine.jpg" alt="Justine profile photo">
+        </div>
+        <div style="margin-top:8px;font-weight:700">Justine Dave Aguirre</div>
+        <div class="muted-2" style="font-size:13px">BSIT — Davao del Sur State College</div>
+
+        <div style="display:flex;gap:8px;margin-top:12px;justify-content:center">
+          <a target="_blank" rel="noopener noreferrer" href="https://github.com/Strong10mede" class="btn--ghost">GitHub</a>
+          <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/Strong10mede" class="btn--ghost">LinkedIn</a>
+        </div>
+      </aside>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="fade-up">
+      <h3 class="section__title">About Me</h3>
+      <span class="section__subtitle">My introduction</span>
+
+      <div class="card" style="display:flex;gap:14px;align-items:center;flex-wrap:wrap">
+        <img src="assets/img/justine.jpg" alt="Justine portrait" style="width:110px;height:110px;border-radius:10px;object-fit:cover;flex:0 0 110px">
+        <div style="flex:1;min-width:180px">
+          <p style="margin:0 0 8px;color:var(--muted)">I'm <strong>Justine Dave Aguirre</strong>, a BSIT student passionate about building efficient, accessible web systems. My focus is creating solutions for schools and small organizations — student portals, hybrid library systems, and crop management apps. I aim for clean UI, solid UX, and maintainable code.</p>
+          <div style="margin-top:8px">
+            <span class="skills-badge">HTML</span>
+            <span class="skills-badge">CSS</span>
+            <span class="skills-badge">JavaScript</span>
+            <span class="skills-badge">Node.js</span>
+            <span class="skills-badge">MySQL</span>
+            <span class="skills-badge">MongoDB</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESUME / EDUCATION / EXPERIENCE -->
+    <section id="resume" class="fade-up">
+      <h3 class="section__title">Resume</h3>
+      <span class="section__subtitle">Education & Experience</span>
+
+      <div class="grid" style="grid-template-columns:1fr 340px;gap:18px">
+        <div>
+          <div class="card" style="margin-bottom:12px">
+            <h4>Education</h4>
+            <div style="margin-top:8px">
+              <strong>BSIT — Davao del Sur State College</strong>
+              <div class="muted-2" style="font-size:13px">3rd Year Student — August 2022 – Present</div>
+              <p class="muted" style="margin-top:8px">Focus on full-stack web development, database systems, and software engineering practices.</p>
+            </div>
+
+            <div style="margin-top:12px">
+              <strong>Senior High — School of Creative Learning</strong>
+              <div class="muted-2" style="font-size:13px">June 2017 – April 2019</div>
+            </div>
+          </div>
+
+          <div class="card">
+            <h4>Experience</h4>
+            <div style="margin-top:10px">
+              <strong>Intern — Project Intern (Goldman Sachs / JP Morgan / Deloitte)</strong>
+              <div class="muted-2" style="font-size:13px">July 2021 (short-term internships)</div>
+              <ul style="margin-top:8px;color:var(--muted)">
+                <li>Assisted with data preparation and documentation for small projects.</li>
+                <li>Worked with teams to prototype dashboards and test procedures.</li>
+                <li>Gained exposure to version control and agile teamwork practices.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <aside>
+          <div class="card">
+            <h4>Contact & Quick CV</h4>
+            <div class="muted-2">Email: aguirrejustine36@gmail.com</div>
+            <div class="muted-2">Phone: 8051279517</div>
+            <div style="margin-top:8px">
+              <a class="btn btn--ghost" href="assets/pdf/Justine_Aguirre_CV.pdf" download>Download Full CV</a>
+            </div>
+            <hr style="border:none;border-top:1px solid var(--glass-border);margin:12px 0">
+            <div style="color:var(--muted)">Career Summary</div>
+            <p class="muted" style="margin-top:6px">Motivated BSIT student building full-stack apps that solve real problems for schools and small businesses. Comfortable with frontend and backend technologies, databases, and project deployment.</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="portfolio" class="fade-up">
+      <h3 class="section__title">Projects</h3>
+      <span class="section__subtitle">Recent & relevant work</span>
+
+      <div class="grid grid-3">
+        <div class="card">
+          <img src="assets/img/portfolio_1.jpg" alt="Responsive Car Website" style="width:100%;border-radius:8px;margin-bottom:8px;display:block">
+          <h4>Responsive Car Website</h4>
+          <div class="muted-2" style="font-size:13px">HTML • CSS • JS • Swiper</div>
+          <p class="muted" style="margin-top:8px">A fully responsive marketing-style site with animated components and a responsive gallery. Good demonstration of layout & UI skills.</p>
+          <a class="muted-2" href="https://strong10mede.github.io/responsive-car-website/" target="_blank" rel="noopener noreferrer">Live demo →</a>
+        </div>
+
+        <div class="card">
+          <img src="assets/img/portfolio_2.jpg" alt="Analog & Digital Clock" style="width:100%;border-radius:8px;margin-bottom:8px;display:block">
+          <h4>Analog & Digital Clock</h4>
+          <div class="muted-2" style="font-size:13px">JavaScript • DOM</div>
+          <p class="muted" style="margin-top:8px">Classic clock project showing DOM manipulation, setInterval and smooth animations.</p>
+          <a class="muted-2" href="https://strong10mede.github.io/Analog_Digital_Clock/" target="_blank" rel="noopener noreferrer">Live demo →</a>
+        </div>
+
+        <div class="card">
+          <img src="assets/img/portfolio_3.jpg" alt="Liquid Navigation Menu" style="width:100%;border-radius:8px;margin-bottom:8px;display:block">
+          <h4>Liquid Navigation Menu</h4>
+          <div class="muted-2" style="font-size:13px">CSS • JavaScript</div>
+          <p class="muted" style="margin-top:8px">Creative navigation UI using SVG and transitions — demonstrates attention to polish and micro-interactions.</p>
+          <a class="muted-2" href="https://strong10mede.github.io/Liquified_Navigation_Menu_Indicator/" target="_blank" rel="noopener noreferrer">Live demo →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- LABORATORY ACTIVITIES 1-5 -->
+    <section id="labs" class="fade-up">
+      <h3 class="section__title">Laboratory Activities (Intermidterm 1–5)</h3>
+      <span class="section__subtitle">Short summaries & links to reports / screenshots</span>
+
+      <div class="grid grid-3">
+        <div class="card">
+          <h4>Lab 1 — Responsive Layout</h4>
+          <div class="muted-2" style="font-size:13px">Goal: Build a responsive landing page</div>
+          <p class="muted" style="margin-top:8px">Implemented mobile-first layout using CSS Grid & Flexbox. Demonstrated breakpoints and fluid images. (Include screenshot in <code>assets/img/lab1.png</code>)</p>
+          <a class="muted-2" href="assets/labs/lab1_report.pdf" target="_blank">View report (if available)</a>
+        </div>
+
+        <div class="card">
+          <h4>Lab 2 — Form Validation</h4>
+          <div class="muted-2" style="font-size:13px">Goal: Frontend form validation</div>
+          <p class="muted" style="margin-top:8px">Created contact form validation with JS patterns and accessibility considerations. Saved messages to localStorage for demo.</p>
+          <a class="muted-2" href="#contact">Open contact demo →</a>
+        </div>
+
+        <div class="card">
+          <h4>Lab 3 — JavaScript Game</h4>
+          <div class="muted-2" style="font-size:13px">Goal: Simple interactive game</div>
+          <p class="muted" style="margin-top:8px">Built Tic-Tac-Toe to practice state, DOM updates, and event handling. Playable below in Games section.</p>
+        </div>
+
+        <div class="card">
+          <h4>Lab 4 — REST / APIs (Demo)</h4>
+          <div class="muted-2" style="font-size:13px">Goal: Consume a public API</div>
+          <p class="muted" style="margin-top:8px">Demo shows using a weather API (client-side) to fetch current weather for user's location with permission fallback. (Use responsibly; replace with your API key if needed.)</p>
+        </div>
+
+        <div class="card">
+          <h4>Lab 5 — Database Design</h4>
+          <div class="muted-2" style="font-size:13px">Goal: ERD & Schema</div>
+          <p class="muted" style="margin-top:8px">Designed an ERD for a Student Portal: users, courses, enrollments, roles, audit logs. Normalized to 3NF and prepared SQL scripts (include as PDF in <code>assets/labs/lab5_db.pdf</code>).</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- GAMES (Tic-Tac-Toe implemented) -->
+    <section id="games" class="fade-up">
+      <h3 class="section__title">Games / Interactivity</h3>
+      <span class="section__subtitle">Interactive demo — Tic-Tac-Toe (for interactivity requirement)</span>
+
+      <div class="games-grid" style="margin-top:8px">
+        <div class="card">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <h4>Tic-Tac-Toe</h4>
+            <div id="tttStatus" class="muted-2">Turn: X</div>
+          </div>
+          <div class="ttt-board" id="tttBoard" aria-label="Tic Tac Toe board"></div>
+          <div style="display:flex;justify-content:space-between;margin-top:10px;align-items:center">
+            <div style="display:flex;gap:8px">
+              <button id="tttReset" class="btn--ghost">Reset</button>
+              <button id="tttUndo" class="btn--ghost">Undo</button>
+            </div>
+            <div id="tttResult" class="muted-2"></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h4>Mini Demo — Memory & Snake</h4>
+          <p class="muted" style="margin-top:8px">Extra small demos (memory & snake) are available in full project repository. Tic-Tac-Toe above is the main interactive feature for this portfolio.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="fade-up">
+      <h3 class="section__title">Contact</h3>
+      <span class="section__subtitle">Get in touch — messages saved locally for demo</span>
+
+      <div class="card" style="display:flex;gap:12px;flex-wrap:wrap">
+        <div style="flex:1;min-width:260px">
+          <form id="contactForm">
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+              <input required id="c_name" placeholder="Your name" aria-label="Your name" />
+              <input required id="c_email" placeholder="Your email" type="email" aria-label="Your email" />
+            </div>
+            <input id="c_subject" placeholder="Subject" style="margin-top:8px" />
+            <textarea id="c_message" placeholder="Message" style="margin-top:8px"></textarea>
+            <div style="display:flex;gap:8px;margin-top:12px;flex-wrap:wrap">
+              <button type="submit" class="btn">Send Message</button>
+              <button type="button" id="clearMsgs" class="btn--ghost">Clear Saved</button>
+              <button type="button" id="mailtoBtn" class="btn--ghost">Send with Email</button>
+            </div>
+          </form>
+        </div>
+
+        <div style="width:320px;min-width:240px">
+          <div class="card muted-2">
+            <h4>Contact Info</h4>
+            <div class="muted-2">Phone: 09911392486</div>
+            <div class="muted-2">Email: aguirrejustine36@gmail.com</div>
+            <div class="muted-2">Location: San Vicente Matanao, Davao del Sur</div>
+            <hr style="border:none;border-top:1px solid var(--glass-border);margin:8px 0">
+            <div><strong>Saved messages</strong></div>
+            <div id="savedList" style="font-size:0.95rem;margin-top:6px">No saved messages</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
+      <div class="muted-2">© 2025 Justine Dave Aguirre — Full Stack Developer</div>
+      <div style="display:flex;gap:8px;align-items:center">
+        <a href="#portfolio" class="muted-2">Portfolio</a>
+        <a href="#contact" class="muted-2">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <button id="backTop" class="scrollup" aria-label="Back to top"><i class="uil uil-arrow-up"></i></button>
+
+  <!-- Optional background audio example (local file recommended) -->
+  <audio id="bgMusic" loop preload="auto" style="display:none">
+    <source src="assets/audio/ambient.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    /* ----------------- Helpers ----------------- */
+    const $ = (s, e=document) => e.querySelector(s);
+    const $$ = (s, e=document) => Array.from(e.querySelectorAll(s));
+
+    /* ----------------- Theme persistence ----------------- */
+    const body = document.body;
+    const themeToggle = document.getElementById('themeToggle');
+    const storedTheme = localStorage.getItem('theme');
+    if(storedTheme) body.setAttribute('data-theme', storedTheme);
+    else {
+      const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+      body.setAttribute('data-theme', prefersLight ? 'light' : 'dark');
+    }
+    function updateThemeIcon(){
+      themeToggle.innerHTML = body.getAttribute('data-theme') === 'dark' ? '<i class="uil uil-sun"></i>' : '<i class="uil uil-moon"></i>';
+    }
+    updateThemeIcon();
+    themeToggle.addEventListener('click', ()=> {
+      const newTheme = body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      body.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      updateThemeIcon();
+    });
+
+    /* ----------------- Visitor counter (localStorage) ----------------- */
+    try {
+      let visits = parseInt(localStorage.getItem('visitors') || '0', 10);
+      visits = Number.isNaN(visits) ? 1 : (visits + 1);
+      localStorage.setItem('visitors', visits);
+      $('#visitorCount').textContent = visits;
+    } catch(e){
+      $('#visitorCount').textContent = '—';
+    }
+
+    /* ----------------- Back to top ----------------- */
+    const backTop = document.getElementById('backTop');
+    window.addEventListener('scroll', ()=> window.scrollY > 300 ? backTop.style.display='block' : backTop.style.display='none');
+    backTop.addEventListener('click', e => { e.preventDefault(); window.scrollTo({top:0,behavior:'smooth'}); });
+
+    /* ----------------- Smooth scroll for anchor links ----------------- */
+    $$('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        const href = a.getAttribute('href');
+        if(href.length>1){
+          e.preventDefault();
+          const el = document.querySelector(href);
+          if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
+        }
+      });
+    });
+
+    /* ----------------- Simple weather (Open-Meteo) with permission fallback ----------------- */
+    const weatherEl = $('#weatherMini');
+    (function(){
+      function show(t){ weatherEl.textContent = t; }
+      function fetchWeather(lat, lon){
+        // Open-Meteo public API (no key). If blocked, will silently fail.
+        const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true&temperature_unit=celsius`;
+        fetch(url).then(r => r.json()).then(data=>{
+          if(data && data.current_weather){
+            show(Math.round(data.current_weather.temperature) + '°C');
+          }
+        }).catch(()=>{ show('—'); });
+      }
+      if(navigator.geolocation){
+        navigator.geolocation.getCurrentPosition(pos => fetchWeather(pos.coords.latitude, pos.coords.longitude),
+                                               ()=> fetchWeather(7.1907,125.4553));
+      } else fetchWeather(7.1907,125.4553);
+    })();
+
+    /* ----------------- Contact form (save locally + mailto fallback) ----------------- */
+    const contactForm = $('#contactForm');
+    const savedList = $('#savedList');
+    function escapeHtml(s){ return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+    function renderSaved(){
+      const arr = JSON.parse(localStorage.getItem('messages')||'[]');
+      if(!arr.length){ savedList.textContent = 'No saved messages'; return; }
+      savedList.innerHTML = arr.slice().reverse().map(m => `<div style="margin-bottom:8px"><strong>${escapeHtml(m.name)}</strong><div class="muted-2" style="font-size:0.9rem">${escapeHtml(m.email)} • ${escapeHtml(m.subject||'—')}</div><div style="font-size:0.9rem;margin-top:6px">${escapeHtml(m.msg)}</div></div>`).join('');
+    }
+    renderSaved();
+    contactForm.addEventListener('submit', e=>{
+      e.preventDefault();
+      const name = $('#c_name').value.trim();
+      const email = $('#c_email').value.trim();
+      const subject = $('#c_subject').value.trim();
+      const msg = $('#c_message').value.trim();
+      if(!name || !email || !msg) return alert('Please fill name, email, and message.');
+      const arr = JSON.parse(localStorage.getItem('messages')||'[]');
+      arr.push({name,email,subject,msg,created:Date.now()});
+      localStorage.setItem('messages', JSON.stringify(arr));
+      alert('Message saved locally. (This demo saves locally. To send email from site, add a backend or email provider.)');
+      contactForm.reset();
+      renderSaved();
+    });
+    $('#clearMsgs').addEventListener('click', ()=> {
+      if(confirm('Clear saved messages?')) { localStorage.removeItem('messages'); renderSaved(); }
+    });
+    $('#mailtoBtn').addEventListener('click', ()=> {
+      const name = $('#c_name').value.trim();
+      const email = $('#c_email').value.trim();
+      const subject = $('#c_subject').value.trim() || 'Portfolio Contact';
+      const msg = $('#c_message').value.trim();
+      if(!name || !email || !msg) return alert('Please fill name, email, and message before sending email.');
+      const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${msg}`);
+      window.location.href = `mailto:aguirrejustine36@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+    });
+
+    /* ----------------- Intersection observer for reveal animations ----------------- */
+    const obs = new IntersectionObserver(entries=>{
+      entries.forEach(ent => ent.isIntersecting ? ent.target.classList.add('visible') : ent.target.classList.remove('visible'));
+    }, {threshold:0.12});
+    document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+
+    /* ----------------- Tic-Tac-Toe (playable) ----------------- */
+    (function(){
+      const boardEl = $('#tttBoard');
+      const status = $('#tttStatus');
+      const result = $('#tttResult');
+      const resetBtn = $('#tttReset');
+      const undoBtn = $('#tttUndo');
+      let history = [], board = Array(9).fill(null), turn = 'X', winner = null;
+
+      function render(){
+        boardEl.innerHTML = '';
+        for(let i=0;i<9;i++){
+          const d = document.createElement('div');
+          d.className = 'cell';
+          d.dataset.i = i;
+          d.textContent = board[i] || '';
+          d.addEventListener('click', onCell);
+          boardEl.appendChild(d);
+        }
+        status.textContent = winner ? `Finished` : `Turn: ${turn}`;
+      }
+
+      function onCell(e){
+        const i = +e.currentTarget.dataset.i;
+        if(board[i] || winner) return;
+        history.push(board.slice());
+        board[i] = turn;
+        if(checkWin(board, turn)){
+          winner = turn;
+          highlightWin(turn);
+          result.textContent = `${turn} wins!`;
+        } else if(board.every(Boolean)){
+          winner = 'draw';
+          result.textContent = 'Draw!';
+        } else {
+          turn = turn === 'X' ? 'O' : 'X';
+          result.textContent = '';
+        }
+        render();
+      }
+
+      function checkWin(b,p){
+        const wins = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
+        return wins.some(line => line.every(i => b[i] === p));
+      }
+
+      function highlightWin(p){
+        const wins = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
+        wins.forEach(line => { if(line.every(i=>board[i]===p)) line.forEach(i => {
+          const el = boardEl.querySelector('[data-i="'+i+'"]'); if(el) el.classList.add('win');
+        })});
+      }
+
+      resetBtn.addEventListener('click', ()=> {
+        board = Array(9).fill(null); turn='X'; winner=null; history=[]; result.textContent=''; render();
+      });
+
+      undoBtn.addEventListener('click', ()=> {
+        if(history.length){
+          board = history.pop();
+          winner = null;
+          turn = ['X','O'][ (board.filter(Boolean).length) % 2 === 0 ? 0 : 1 ];
+          result.textContent = '';
+          render();
+        }
+      });
+
+      // init
+      render();
+    })();
+
+    /* ----------------- Accessibility: show focus outlines when keyboard users navigate ----------------- */
+    document.addEventListener('keydown', e => { if(e.key === 'Tab') document.body.classList.add('user-is-tabbing'); });
+
+    /* ----------------- Unload cleanup ----------------- */
+    window.addEventListener('beforeunload', ()=> { try{ $('#bgMusic')?.pause(); } catch(e){} });
+  </script>
+</body>
+</html>
