@@ -112,7 +112,7 @@
 
       <div class="controls">
         <button id="themeToggle" title="Toggle theme" aria-label="Toggle theme" class="btn--ghost"><i class="uil uil-moon"></i></button>
-        <a class="btn--ghost" href="assets/pdf/Justine_Aguirre_CV.pdf" download title="Download CV">Download CV</a>
+        
       </div>
     </div>
   </header>
@@ -152,7 +152,7 @@
 
         <div style="display:flex;gap:8px;margin-top:12px;justify-content:center">
           <a target="_blank" rel="noopener noreferrer" href="https://github.com/Unkown-user07" class="btn--ghost">GitHub</a>
-          <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/Strong10mede" class="btn--ghost">LinkedIn</a>
+          <a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/aguirrejustine.villaester/" class="btn--ghost">Facebook</a>
         </div>
       </aside>
     </section>
@@ -268,12 +268,41 @@
       <span class="section__subtitle">Short summaries & links to reports / screenshots</span>
 
       <div class="grid grid-3">
-        <div class="card">
+        <div class="card lab-card">
           <h4>Lab 1 — Responsive Layout</h4>
-          <div class="muted-2" style="font-size:13px">Goal: Build a responsive landing page</div>
-          <p class="muted" style="margin-top:8px">Implemented mobile-first layout using CSS Grid & Flexbox. Demonstrated breakpoints and fluid images. (Include screenshot in <code>assets/img/lab1.png</code>)</p>
-          <a class="muted-2" href="assets/labs/lab1_report.pdf" target="_blank">View report (if available)</a>
+          <img src="assets/img/{BE2E913D-9B08-450D-9B5B-BF9C5008EDCA}.png" alt="Lab 1 Screenshot" class="lab-image">
         </div>
+      </div>
+
+    <style>
+      .lab-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.lab-card h4 {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 2;
+  color: white;
+  background: rgba(0, 0, 0, 0.6);
+
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.lab-card .lab-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+    </style>
+
 
         <div class="card">
           <h4>Lab 2 — Form Validation</h4>
