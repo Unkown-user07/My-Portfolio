@@ -17,10 +17,6 @@ It features a clean, modern user interface and includes the following sections:
 - **Contact**
 - **Footer**
 
-### 📄 Resume / CV
-[View Resume](justine.jpg)
-
-### 🧪 Notes
 - "okkk"
 - "practice"
 - "practice"
