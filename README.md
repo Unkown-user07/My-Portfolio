@@ -1,9 +1,28 @@
-# Responsive Portfolio Website 
-## [To watch click on this](https://unknown-user07.github.io/My-Portfolio/)
-### Responsive Portfolio Website 
-Responsive Portfolio Website Using Html, Css and JavaScript, With a beautiful user interface. It contains a Header, Home, About, Skills, Qualification, Services, Portfolio, Project in mind, Testimonial, Contact and Footer.
+# Responsive Portfolio Website
 
-![Resume cv](/justine.jpg)
-"# okkk" 
-"# practice" 
-"# practice" 
+![Resume](justine.jpg)
+
+A responsive and visually appealing portfolio website built using **HTML**, **CSS**, and **JavaScript**.  
+It features a clean, modern user interface and includes the following sections:
+
+- **Header**
+- **Home**
+- **About**
+- **Skills**
+- **Qualification**
+- **Services**
+- **Portfolio**
+- **Project in Mind**
+- **Testimonials**
+- **Contact**
+- **Footer**
+
+You can view the project here:  
+👉 [Visit GitHub Repository](https://github.com/Unkown-user07)
+
+---
+
+### Notes:
+- "okkk"
+- "practice"
+- "practice"
