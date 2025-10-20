@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>JUSTINE DAVE AGUIRRE — Simple Page</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+ 
+  <header>
+    <h1>JUSTINE DAVE AGUIRRE</h1>
+    <p>Welcome to this simple HTML layout (no CSS).</p>
+    <img src="aguirre.jpg" alt="Header banner image" />
+  </header>
+
+
+  <nav aria-label="Main navigation">
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#form-section">Form</a></li>
+      <li><a href="#table-section">Table</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+
+  <main>
+    <aside aria-labelledby="aside-heading">
+      <h2 id="aside-heading">Side Notes</h2>
+      <p>This is an aside section for short notes, links, or info.</p>
+      <ul>
+        <li>Note 1</li>
+        <li>Note 2</li>
+      </ul>
+    </aside>
+
+  
+    <section id="form-section">
+      <h2>Simple Contact Form</h2>
+      <form id="contactForm" action="#" method="post" aria-describedby="form-desc">
+        <p id="form-desc">Fill out the form and press submit.</p>
+
+        <label for="name">Name:</label><br />
+        <input type="text" id="name" name="name" required /><br /><br />
+
+        <label for="email">Email:</label><br />
+        <input type="email" id="email" name="email" required /><br /><br />
+
+        <label for="message">Message:</label><br />
+        <textarea id="message" name="message" rows="4" cols="40"></textarea><br /><br />
+
+        <fieldset>
+          <legend>Subscribe</legend>
+          <label><input type="radio" name="subscribe" value="yes" checked /> Yes</label>
+          <label><input type="radio" name="subscribe" value="no" /> No</label>
+        </fieldset><br />
+
+        <button type="submit">Submit</button>
+        <button type="reset">Reset</button>
+      </form>
+    </section>
+
+    
+    <section id="table-section">
+      <h2>Sample Table</h2>
+      <table border="1" summary="Sample data table">
+        <caption>Students (example)</caption>
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Student Name</th>
+            <th scope="col">Course</th>
+            <th scope="col">Year</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Maria Santos</td>
+            <td>BSIT</td>
+            <td>3</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Juan Dela Cruz</td>
+            <td>BSCS</td>
+            <td>2</td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td>Anna Lee</td>
+            <td>BSIT</td>
+            <td>4</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+  </main>
+
+
+  <footer>
+    <p>&copy; <time datetime="2025">2025</time> JUSTINE DAVE AGUIRRE. All rights reserved.</p>
+    <p>Contact: <a href="mailto:example@example.com">example@example.com</a></p>
+  </footer>
+
+</body>
+</html>

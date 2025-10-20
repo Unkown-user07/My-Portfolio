@@ -1,0 +1,79 @@
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: rgb(39, 138, 177);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Dark mode background */
+body.dark {
+  background-color: #121212;
+  color: #f0f0f0;
+}
+
+#toggle-theme {
+  background: none;
+  border: 2px solid #fff;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: 0.3s;
+}
+
+body.dark #toggle-theme {
+  border-color: #f0f0f0;
+  color: #f0f0f0;
+}
+
+#toggle-theme:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Card styles */
+.card {
+  width: 250px;
+  text-align: center;
+  background: whitesmoke;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}
+
+.card img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50px;
+  object-fit: cover;
+}
+
+.card p {
+  margin-top: 15px;
+  color: rgb(19, 19, 19);
+  line-height: 1.4;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: opacity 0.3s ease, max-height 0.3s ease;
+}
+
+.card:hover p {
+  opacity: 1;
+  max-height: 100px;
+}
+
+/* Dark mode card */
+body.dark .card {
+  background: #1f1f1f;
+  color: #f0f0f0;
+}
