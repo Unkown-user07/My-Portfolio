@@ -1268,15 +1268,7 @@ img {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .hero__title {
-    display: inline-block;
-    white-space: nowrap;
-    overflow: hidden;
-    border-right: 3px solid var(--text-primary);
-    font-size: clamp(1.8rem, 5vw, 3rem);
-    animation: typing 4s steps(40, end) forwards, blink 0.7s step-end infinite;
-    margin-bottom: 12px;
-  }
+
 
 
 }
